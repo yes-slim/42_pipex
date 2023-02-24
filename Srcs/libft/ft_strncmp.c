@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/24 14:57:55 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/15 14:09:47 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/02/24 15:00:46 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main(int ac, char **av, char **env)
+int	ft_strncmp(char *s1, char *s2)
 {
-	if (ac != 5)
-		exit(1);
-	check_args(av, env[6]);
+	size_t	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }

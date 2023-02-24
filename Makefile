@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/02/23 19:21:27 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/02/24 15:54:25 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,11 @@ NAME_B =
 DEL = rm -f
 
 FT_PRINTF = ft_printf_helpers ft_printf
-HELPERS = check_args
-
+HELPERS = check_args ft_error
+LIBFT = ft_split functions
 SRCS =	$(addsuffix .c, $(addprefix Srcs/ft_printf/, $(FT_PRINTF))) \
 		$(addsuffix .c, $(addprefix SRCS/helpers/, $(HELPERS))) \
+		$(addsuffix .c, $(addprefix SRCS/libft/, $(LIBFT))) \
 		$(addsuffix .c, $(addprefix /, $())) \
 
 BSRCS = $(addsuffix .c, $(addprefix /, $())) \
