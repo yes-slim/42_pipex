@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/22 18:33:10 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:21:51 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	ft_print_char(char c, int *len);
 void	ft_print_str(char *str, int *len);
 void	ft_print_nbr(int i, int *len);
 void	ft_print_adr(unsigned long l, int *len);
+/*--------------------------------*/
+//HELPERS
+void	check_args(char **av, char **env);
 /*--------------------------------*/
 
 

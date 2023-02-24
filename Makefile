@@ -6,17 +6,18 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/02/22 19:53:21 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/02/23 19:21:27 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Werror -Wextra -c
+INC = -I includes
+CFLAGS = -Wall -Werror -Wextra $(INC) -c
 NAME = pipex
 NAME_B = 
 DEL = rm -f
 
 FT_PRINTF = ft_printf_helpers ft_printf
-HELPERS = 
+HELPERS = check_args
 
 SRCS =	$(addsuffix .c, $(addprefix Srcs/ft_printf/, $(FT_PRINTF))) \
 		$(addsuffix .c, $(addprefix SRCS/helpers/, $(HELPERS))) \
@@ -34,7 +35,7 @@ bonus : $(NAME_B)
 
 $(NAME) : $(OBJ) pipex.c
 	@ar -rc pipex.a $(OBJ)
-	@cc pipex.c pipex.a -o $(NAME)
+	@cc pipex.c pipex.a $(INC) -o $(NAME)
 	@clear
 	@echo "✅\033[0;35m Your \033[0;33mpipex \033[0;35mprogram is created \033[0m"
 

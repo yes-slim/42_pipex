@@ -6,11 +6,11 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:50:49 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/22 18:33:25 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:54:41 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pipex.h"
+#include "pipex.h"
 
 void	ft_print_adr(unsigned long l, int *len)
 {

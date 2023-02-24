@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/23 19:22:18 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/02/23 19:31:11 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main(int ac, char **av, char **env)
+void	check_args(char **av, char **env)
 {
-	if (ac != 5)
-		exit(1);
-	check_args(av, env);
+	int	i;
+	
 }
