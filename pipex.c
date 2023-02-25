@@ -6,15 +6,15 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/24 14:57:55 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:11:02 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main(int ac, char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
 	if (ac != 5)
 		exit(1);
-	check_args(av, env[6]);
+	check_args(av, env);
 }
