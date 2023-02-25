@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/25 12:35:54 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:48:52 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_cmd(char **av, char *env)
 	while (--i)
 		free(path[i]);
 	free(path);
-	if (c1 || c2)
+	if (!c1 || !c2)
 		ft_error(1);
 }
 
