@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/24 16:16:02 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:35:54 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ void	check_cmd(char **av, char *env)
 	{
 		path[i] = ft_join(path[i], "/");
 		tmp = ft_join(path[i], av[2]);
-		if (access(tmp, X_OK))
+		if (!access(tmp, X_OK))
 			c1++;
 		tmp = ft_join(path[i], av[3]);
-		if (access(tmp, X_OK))
+		if (!access(tmp, X_OK))
 			c2++;
 		i++;
 	}
 	while (--i)
 		free(path[i]);
 	free(path);
-	if (!c1 || !c2)
+	if (c1 || c2)
 		ft_error(1);
 }
 
