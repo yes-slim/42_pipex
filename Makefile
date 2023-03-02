@@ -6,11 +6,11 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/03/02 19:03:05 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/03/02 19:05:58 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Werror -Wextra -I includes
+CFLAGS = -Wall -Werror -Wextra -I includes -c
 NAME = pipex
 NAME_B = 
 DEL = rm -f
@@ -54,4 +54,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean r-I includess
