@@ -6,12 +6,11 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/02/24 15:54:25 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/03/02 19:03:05 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-INC = -I includes
-CFLAGS = -Wall -Werror -Wextra $(INC) -c
+CFLAGS = -Wall -Werror -Wextra -I includes
 NAME = pipex
 NAME_B = 
 DEL = rm -f
@@ -30,13 +29,16 @@ BSRCS = $(addsuffix .c, $(addprefix /, $())) \
 OBJ = $(SRCS:.c=.o)
 BOBJ = $(BSRCS:.c=.o)
 
+%.o : %.c
+	cc $(CFLAGS) $< -o $@
+
 all : $(NAME)
 
 bonus : $(NAME_B)
 
 $(NAME) : $(OBJ) pipex.c
 	@ar -rc pipex.a $(OBJ)
-	@cc pipex.c pipex.a $(INC) -o $(NAME)
+	@cc pipex.c pipex.a -I includes -o $(NAME)
 	@clear
 	@echo "✅\033[0;35m Your \033[0;33mpipex \033[0;35mprogram is created \033[0m"
 
