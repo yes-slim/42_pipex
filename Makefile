@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/03/02 19:05:58 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/03/03 11:24:16 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJ = $(SRCS:.c=.o)
 BOBJ = $(BSRCS:.c=.o)
 
 %.o : %.c
-	cc $(CFLAGS) $< -o $@
+	@cc $(CFLAGS) $< -o $@
 
 all : $(NAME)
 
