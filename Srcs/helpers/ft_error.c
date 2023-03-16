@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:22:04 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/25 17:10:58 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:57:14 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ void	ft_error(int err)
 		ft_printf("Error: command not found\n");
 	if (err == 2)
 		ft_printf("Error: file not found\n");
+	if (err == 3)
+		ft_printf("Error: access denied\n");
 	exit(1);
 }

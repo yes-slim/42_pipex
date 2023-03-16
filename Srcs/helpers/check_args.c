@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/16 15:24:03 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:59:08 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,27 @@ void	check_cmd(char **av, char **env)
 		ft_error(1);
 }
 
-void	check_file(char *av)
+void	check_file(char **av)
 {
-	if (open(av, O_RDONLY) == -1)
-		ft_error(2);
+	if (open(av[1], O_RDONLY) == -1)
+	{
+		if (!access(av[1], R_OK))
+			ft_error(3);
+		else
+			ft_error(2);
+	}
+	if (open(av[4], O_WRONLY | O_CREAT | O_TRUNC) == -1)
+	{
+		if (!access(av[4], W_OK))
+			ft_error(3);
+		else
+			ft_error(2);
+	}
+	
 }
 
 void	check_args(char **av, char **env)
 {
 	check_cmd(av, env);
-	check_file(av[1]);
+	check_file(av);
 }
