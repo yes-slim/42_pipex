@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/16 20:59:08 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:10:06 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	check_file(char **av)
 {
 	if (open(av[1], O_RDONLY) == -1)
 	{
-		if (!access(av[1], R_OK))
+		if (access(av[1], R_OK) == -1)
 			ft_error(3);
 		else
 			ft_error(2);
 	}
 	if (open(av[4], O_WRONLY | O_CREAT | O_TRUNC) == -1)
 	{
-		if (!access(av[4], W_OK))
+		if (access(av[4], W_OK) == -1)
 			ft_error(3);
 		else
 			ft_error(2);
