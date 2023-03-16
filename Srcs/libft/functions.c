@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:09:45 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/25 17:12:12 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:19:32 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strdup(const char *src)
 	return (dup);
 }
 
-char	*ft_join(char *s1, char *s2)
+char	*ft_join(char *s1, char *s2, int z)
 {
 	int		i;
 	char	*new;
@@ -66,6 +66,8 @@ char	*ft_join(char *s1, char *s2)
 	while (s2[i])
 		new[j++] = s2[i++];
 	new[j] = '\0';
+	if (z == 1)
+		free(s1);
 	return (new);
 }
 

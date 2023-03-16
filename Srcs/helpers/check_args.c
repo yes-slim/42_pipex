@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/10 14:21:04 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:24:03 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,17 @@ void	check_cmd_path(char **path, char ***cmd, int *c1, int *c2)
 	tmp = NULL;
 	while (path[i])
 	{
-		path[i] = ft_join(path[i], "/");
-		tmp = ft_join(path[i], cmd[0][0]);
+		path[i] = ft_join(path[i], "/", 1);
+		tmp = ft_join(path[i], cmd[0][0], 0);
 		if (!access(tmp, X_OK))
 			(*c1)++;
-		tmp = ft_join(path[i], cmd[1][0]);
+		free(tmp);
+		tmp = ft_join(path[i], cmd[1][0], 0);
 		if (!access(tmp, X_OK))
 			(*c2)++;
+		free(tmp);
 		i++;
 	}
-	ft_free(path);
 	ft_free(cmd[0]);
 	ft_free(cmd[1]);
 	free(cmd);
@@ -69,17 +70,15 @@ void	check_cmd(char **av, char **env)
 	if (!path || !cmd[0] || !cmd[1])
 		ft_error(0);
 	check_cmd_path(path, cmd, &c1, &c2);
+	ft_free(path);
 	if (!c1 || !c2)
 		ft_error(1);
 }
 
-void	check_file(char **av)
+void	check_file(char *av)
 {
-	if (open(av[1], O_RDONLY) == -1)
+	if (open(av, O_RDONLY) == -1)
 		ft_error(2);
-	if (open(av[4]) == 1)
-		if (open(av[4], O_WRONLY) == -1)
-			ft_error(2);
 }
 
 void	check_args(char **av, char **env)

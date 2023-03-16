@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/25 17:10:42 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:23:32 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_adr(unsigned long l, int *len);
 /*--------------------------------*/
 //LIBFT
 char	**ft_split(char const *s, char c);
-char	*ft_join(char *s1, char *s2);
+char	*ft_join(char *s1, char *s2, int z);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 /*--------------------------------*/
 //HELPERS

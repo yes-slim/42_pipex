@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/09 21:48:16 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:11:24 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ int	main(int ac, char **av, char **env)
 	if (ac != 5)
 		exit(1);
 	check_args(av, env);
+	system("leaks pipex");
 }
