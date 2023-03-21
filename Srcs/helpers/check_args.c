@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/18 23:34:56 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:05:25 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_free(char **arr)
 	free(arr);
 }
 
-void	check_cmd_path(char **path, char ***cmd, int *c1, int *c2)
+void	check_cmd_path(char **path, char ***cmd, char **c1, char **c2)
 {
 	char	*tmp;
 	int		i;
@@ -34,11 +34,11 @@ void	check_cmd_path(char **path, char ***cmd, int *c1, int *c2)
 		path[i] = ft_join(path[i], "/", 1);
 		tmp = ft_join(path[i], cmd[0][0], 0);
 		if (!access(tmp, X_OK))
-			(*c1)++;
+			*c1 = ft_strdup(tmp);
 		free(tmp);
 		tmp = ft_join(path[i], cmd[1][0], 0);
 		if (!access(tmp, X_OK))
-			(*c2)++;
+			*c2 = ft_strdup(tmp);;
 		free(tmp);
 		i++;
 	}
@@ -47,12 +47,10 @@ void	check_cmd_path(char **path, char ***cmd, int *c1, int *c2)
 	free(cmd);
 }
 
-void	check_cmd(char **av, char **env)
+void	check_cmd(char **av, char **env, char **cmd1, char **cmd2)
 {
 	char			**path;
 	char			***cmd;
-	static int		c1;
-	static int		c2;
 	static int		i;
 
 	while (env[i])
@@ -69,9 +67,9 @@ void	check_cmd(char **av, char **env)
 	cmd[1] = ft_split(av[3], ' ');
 	if (!path || !cmd[0] || !cmd[1])
 		ft_error(0);
-	check_cmd_path(path, cmd, &c1, &c2);
+	check_cmd_path(path, cmd, cmd1, cmd2);
 	ft_free(path);
-	if (!c1 || !c2)
+	if (!(*cmd1) || !(*cmd2))
 		ft_error(1);
 }
 
@@ -79,23 +77,23 @@ void	check_file(char **av)
 {
 	if (open(av[1], O_RDONLY) == -1)
 	{
-		if (access(av[1], R_OK) == -1)
-			ft_error(3);
-		else
+		if (access(av[1], F_OK) == -1)
 			ft_error(2);
+		else
+			ft_error(3);
 	}
-	if (open(av[4], O_WRONLY | O_CREAT | O_TRUNC) == -1)
+	if (open(av[4], O_WRONLY | O_TRUNC) == -1)
 	{
-		if (access(av[4], W_OK) == -1)
-			ft_error(3);
-		else
+		if (access(av[4], F_OK) == -1)
 			ft_error(2);
+		else
+			ft_error(3);
 	}
 	
 }
 
-void	check_args(char **av, char **env)
+void	check_args(char **av, char **env, char **cmd1, char **cmd2)
 {
-	check_cmd(av, env);
+	check_cmd(av, env, cmd1, cmd2);
 	check_file(av);
 }
