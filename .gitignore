@@ -1,2 +1,2 @@
-.DS_Store
-Srcs_lib/
+*.DS_Store
+./Srcs_lib
