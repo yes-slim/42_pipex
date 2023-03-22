@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/15 14:09:47 by yes-slim          #+#    #+#             */
+/*   Updated: 2022/11/01 23:25:49 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **env)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	size_t	i;
+
+	i = 0;
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

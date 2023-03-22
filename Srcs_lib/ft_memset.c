@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/15 13:49:34 by yes-slim          #+#    #+#             */
+/*   Updated: 2022/10/31 23:53:28 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **env)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	unsigned char	*s;
+	size_t			i;
+
+	i = 0;
+	s = (unsigned char *)str;
+	while (i < len)
+	{
+		s[i] = c;
+		i++;
+	}
+	return ((void *)s);
 }

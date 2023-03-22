@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/15 13:53:51 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/03/21 20:39:43 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int ac, char **av, char **env)
+char	*ft_strchr(const char *str, int c)
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	int	i;
+
+	i = ft_strlen(str);
+	if ((char)c == '\0')
+		return ((char *)&str[i]);
+	i = 0;
+	while (str[i] != (char)c && str[i] != '\0')
+		i++;
+	if (str[i] == '\0')
+		return (NULL);
+	return ((char *)&str[i]);
 }

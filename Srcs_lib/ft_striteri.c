@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/18 15:06:54 by yes-slim          #+#    #+#             */
+/*   Updated: 2022/11/02 12:41:58 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **env)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	unsigned int	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

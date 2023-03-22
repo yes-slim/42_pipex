@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/21 18:05:25 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:19:51 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,22 @@ void	check_file(char **av)
 
 void	check_args(char **av, char **env, char **cmd1, char **cmd2)
 {
+	if (av[2][0] == ' '  || av[2][0] == '\t' || av[3][0] == ' ' || av[3][0] == '\t')
+		ft_error(1);
 	check_cmd(av, env, cmd1, cmd2);
+	if (ft_strchr(av[2], '/'))
+	{
+		free(*cmd1);
+		*cmd1 = ft_strdup(av[2]);
+		if (access(*cmd1, X_OK) == -1)
+			ft_error(4);
+	}
+	if (ft_strchr(av[3], '/'))
+	{
+		free(*cmd2);
+		*cmd2 = ft_strdup(av[3]);
+		if (access(*cmd2, X_OK) == -1)
+			ft_error(4);
+	}
 	check_file(av);
 }

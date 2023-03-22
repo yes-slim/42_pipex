@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/26 15:18:19 by yes-slim          #+#    #+#             */
+/*   Updated: 2022/11/03 07:28:32 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **env)
+void	ft_putendl_fd(char *s, int fd)
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

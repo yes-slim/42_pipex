@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:39 by yes-slim         ###   ########.fr       */
+/*   Created: 2022/10/15 13:25:11 by yes-slim          #+#    #+#             */
+/*   Updated: 2022/10/31 23:53:25 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **env)
+void	*ft_memmove(void *dst, const void *sr, size_t n)
 {
-	static char	*cmd1;
-	static char	*cmd2;
-	
-	if (ac != 5)
-		exit(1);
-	check_args(av, env, &cmd1, &cmd2);
-	ft_printf("%s\n%s\n", cmd1, cmd2);
-	// system("leaks pipex");
+	size_t			len;
+	unsigned char	*dest;
+	unsigned char	*src;
+
+	if (!dst && !sr)
+		return (NULL);
+	dest = (unsigned char *)dst;
+	src = (unsigned char *)sr;
+	len = n;
+	if (dest > src)
+	{
+		while (len > 0)
+		{
+			len--;
+			dest[len] = src[len];
+		}
+	}
+	else
+		ft_memcpy(dst, sr, n);
+	return ((void *)dest);
 }
