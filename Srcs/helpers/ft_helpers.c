@@ -6,11 +6,11 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:47:41 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/23 10:58:50 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:11:59 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipx.h"
+#include "pipex.h"
 
 void	ft_free(char **arr)
 {

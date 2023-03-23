@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:54:50 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/02/24 15:00:02 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:13:01 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_wrdcount(char const *s, char c)
 	return (wc);
 }
 
-static void	ft_free(char **arr, int i)
+static void	free_ft(char **arr, int i)
 {
 	while (i >= 0)
 	{
@@ -78,7 +78,7 @@ static	char	**ft_fillarr(const char *s, char **arr, int wc, char c)
 		arr[x] = fillwrd(s, c, i);
 		if (!arr[x])
 		{
-			ft_free(arr, x);
+			free_ft(arr, x);
 			return (NULL);
 		}
 		x++;
