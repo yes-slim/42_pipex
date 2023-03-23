@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/23 10:32:08 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/23 12:24:48 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 /*--------------------------------*/
 //HELPERS
-void	check_args(char **av, char **env, char **cmd1, char **cmd2);
 void	ft_error(int err);
+void	ft_free(char **arr);
 /*--------------------------------*/
 
 #endif

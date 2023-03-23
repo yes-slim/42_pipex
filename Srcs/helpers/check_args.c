@@ -6,21 +6,11 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:54:15 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 11:19:51 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:29:25 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	ft_free(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
-	free(arr);
-}
 
 void	check_cmd_path(char **path, char ***cmd, char **c1, char **c2)
 {
@@ -73,25 +63,6 @@ void	check_cmd(char **av, char **env, char **cmd1, char **cmd2)
 		ft_error(1);
 }
 
-void	check_file(char **av)
-{
-	if (open(av[1], O_RDONLY) == -1)
-	{
-		if (access(av[1], F_OK) == -1)
-			ft_error(2);
-		else
-			ft_error(3);
-	}
-	if (open(av[4], O_WRONLY | O_TRUNC) == -1)
-	{
-		if (access(av[4], F_OK) == -1)
-			ft_error(2);
-		else
-			ft_error(3);
-	}
-	
-}
-
 void	check_args(char **av, char **env, char **cmd1, char **cmd2)
 {
 	if (av[2][0] == ' '  || av[2][0] == '\t' || av[3][0] == ' ' || av[3][0] == '\t')
@@ -112,4 +83,23 @@ void	check_args(char **av, char **env, char **cmd1, char **cmd2)
 			ft_error(4);
 	}
 	check_file(av);
+}
+
+void	check_file(char **av)
+{
+	if (open(av[1], O_RDONLY) == -1)
+	{
+		if (access(av[1], F_OK) == -1)
+			ft_error(2);
+		else
+			ft_error(3);
+	}
+	if (open(av[4], O_WRONLY | O_TRUNC) == -1)
+	{
+		if (access(av[4], F_OK) == -1)
+			ft_error(2);
+		else
+			ft_error(3);
+	}
+	
 }
