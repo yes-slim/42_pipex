@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:22:04 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/22 12:28:21 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:09:34 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_error(int err)
 		ft_printf("Error: permission denied\n");
 	if (err == 4)
 		ft_printf("Error: no such file or directory\n");
-	exit(1);
+	// exit(1);
 }
