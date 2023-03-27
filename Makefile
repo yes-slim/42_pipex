@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/03/23 12:24:23 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/03/27 16:09:36 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ bonus : $(NAME_B)
 $(NAME) : $(OBJ) pipex.c
 	@ar -rc pipex.a $(OBJ)
 	@cc pipex.c pipex.a -I includes -o $(NAME)
-	@clear
 	@echo "✅\033[0;35m Your \033[0;33mpipex \033[0;35mprogram is created \033[0m"
 
 $(NAME_B) : $(OBJ) $(BOBJ)

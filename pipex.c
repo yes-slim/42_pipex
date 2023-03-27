@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/25 16:47:18 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:24:02 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,16 @@ int	main(int ac, char **av, char **env)
 	
 	if (ac != 5)
 		exit(1);
-	cmd1 = ft_check_args_1(av, env);
-	cmd2 = ft_check_args_2(av, env);
-	// printf("%s\n%s\n", cmd1, cmd2);
+	pid = fork();
+	{
+		if (pid > 0)
+		{
+			cmd1 = ft_check_args_1(av, env);
+		}
+		else
+		{
+			cmd2 = ft_check_args_2(av, env);
+		}
+	}
 	// system("leaks pipex");
 }
