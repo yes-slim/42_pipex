@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:23:34 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/30 11:16:14 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:21:45 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*check_cmd_2(char **cmd, char **env)
 
 int	check_file_2(char *path)
 {
-	if (open(path, O_WRONLY | O_TRUNC) == -1)
+	if (open(path, O_CREAT | O_WRONLY | O_TRUNC , 0666) == -1)
 	{
 		if (access(path, W_OK) == -1)
 			ft_error(3);
