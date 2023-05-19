@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/19 22:12:46 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/19 22:47:53 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ char	*ft_join(char *s1, char *s2, int z);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
+char	*ft_strchr(const char *str, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+/*--------------------------------*/
+//GNL
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+char	*ft_fill(char *str);
+char	*ft_remainder(char *str);
+char	*ft_read(int fd, char *str);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *str, int c);
 /*--------------------------------*/
 //HELPERS

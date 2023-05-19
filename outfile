@@ -1,1 +1,13 @@
-      13
+Makefile
+README.md
+Srcs
+Srcs_lib
+includes
+infile
+outfile
+pipex
+pipex.a
+pipex.c
+pipex.eval.pdf
+pipex.sub.pdf
+pipex_bonus.c
