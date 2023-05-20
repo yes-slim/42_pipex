@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:58:07 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 15:34:16 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:01:25 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	st_pr_hd(int *pp, char **av, char **env, char *path)
 	if (dup2(pp[1], 1) == -1)
 		//error managment
 	close(pp[1]);
-	execve(cmd1, ft_split(av[2], ' '), env);
+	execve(cmd1, ft_split(av[3], ' '), env);
 }
 
 void	nd_pr_hd(int *pp, char **av, char **env)
@@ -58,7 +58,7 @@ void	nd_pr_hd(int *pp, char **av, char **env)
 	if (dup2(fd2, 1) == -1)
 		//error managment
 	close(fd2);
-	execve(cmd2, ft_split(av[3], ' '), env);
+	execve(cmd2, ft_split(av[4], ' '), env);
 }
 
 void	here_doc(char **av, char **env)
