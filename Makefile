@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/05/20 13:47:39 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/05/20 15:24:07 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_B = pipex_bonus
 DEL = rm -f
 
 FT_PRINTF = ft_printf_helpers ft_printf
-HELPERS = ft_get_path check_files ft_error ft_helpers childs
+HELPERS = ft_get_path check_files ft_error ft_helpers childs here_doc
 LIBFT = ft_split functions ft_strdup ft_strncmp
 GNL = get_next_line get_next_line_utils
 SRCS =	$(addsuffix .c, $(addprefix Srcs/ft_printf/, $(FT_PRINTF))) \

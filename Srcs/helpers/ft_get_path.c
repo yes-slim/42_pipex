@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:23:34 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 13:47:26 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:43:51 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*get_path(char *av, char **env)
 		ft_free(cmd);
 		return(path);
 	}
-	path = get_path(cmd[0], env);
+	path = get_cmd(cmd, env);
 	if (!path)
 		ft_error(1);
 	ft_free(cmd);
