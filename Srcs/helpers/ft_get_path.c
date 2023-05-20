@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args_1.c                                  :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 12:23:16 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/08 18:54:34 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/03/23 12:23:34 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/05/20 13:47:26 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*check_cmd_1(char **cmd, char **env)
+char	*get_cmd(char **cmd, char **env)
 {
 	char	**path;
 	char	*tmp;
@@ -24,7 +24,7 @@ char	*check_cmd_1(char **cmd, char **env)
 			break ;
 	path = ft_split(env[i], ':');
 	if (!path)
-		ft_error_exit(0);
+		ft_error(0);
 	i = 0;
 	while (path[i])
 	{
@@ -41,29 +41,14 @@ char	*check_cmd_1(char **cmd, char **env)
 	return (NULL);
 }
 
-int	check_file_1(char *path)
-{
-	if (open(path, O_RDONLY) == -1)
-	{
-		if (access(path, F_OK) == -1)
-			ft_error(2);
-		else
-			ft_error(3);
-		return(0);
-	}
-	return (1);
-}
-
-char	*ft_check_args_1(char **av, char **env)
+char	*get_path(char *av, char **env)
 {
 	char	*path;
 	char	**cmd;
 
-	if (!check_file_1(av[1]))
-		ft_error_exit(-1);
-	cmd = ft_split(av[2], ' ');
+	cmd = ft_split(av, ' ');
 	if (!cmd)
-		ft_error_exit(0);
+		ft_error(0);
 	if (cmd[0][0] == '/' || cmd[0][0] == ' ' || cmd[0][0] == '\t')
 	{
 		if (cmd[0][0] == ' ' || cmd[0][0] == '\t')
@@ -74,9 +59,9 @@ char	*ft_check_args_1(char **av, char **env)
 		ft_free(cmd);
 		return(path);
 	}
-	path = check_cmd_1(cmd, env);
+	path = get_path(cmd[0], env);
 	if (!path)
 		ft_error(1);
 	ft_free(cmd);
-	return (path);
+	return(path);
 }

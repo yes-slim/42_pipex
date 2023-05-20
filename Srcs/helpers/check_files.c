@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   check_files.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 13:53:51 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/21 20:39:43 by yes-slim         ###   ########.fr       */
+/*   Created: 2023/05/20 13:34:26 by yes-slim          #+#    #+#             */
+/*   Updated: 2023/05/20 13:45:14 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*ft_strchr(const char *str, int c)
+int	check_infile(char *path)
 {
-	int	i;
+	if (open(path, O_RDONLY) == -1)
+	{
+		if (access(path, F_OK) == -1)
+			ft_error(2);
+		else
+			ft_error(3);
+		return(0);
+	}
+	return (1);
+}
 
-	i = ft_strlen(str);
-	if ((char)c == '\0')
-		return ((char *)&str[i]);
-	i = 0;
-	while (str[i] != (char)c && str[i] != '\0')
-		i++;
-	if (str[i] == '\0')
-		return (NULL);
-	return ((char *)&str[i]);
+int	check_outfile(char *path)
+{
+	if (open(path, O_CREAT | O_WRONLY | O_TRUNC , 0666) == -1)
+	{
+		if (access(path, W_OK) == -1)
+			ft_error(3);
+		return(0);
+	}
+	return (1);
 }

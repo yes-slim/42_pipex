@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/19 22:47:53 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/20 13:46:13 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
+char	*get_next_line(int fd);
 char	*ft_fill(char *str);
 char	*ft_remainder(char *str);
 char	*ft_read(int fd, char *str);
@@ -48,8 +49,9 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *str, int c);
 /*--------------------------------*/
 //HELPERS
-char	*ft_check_args_1(char **av, char **env);
-char	*ft_check_args_2(char **av, char **env);
+char	*get_path(char *av, char **env);
+int		check_infile(char *path);
+int		check_outfile(char *path);
 void	ft_error(int err);
 void	ft_error_exit(int err);
 void	ft_free(char **arr);
