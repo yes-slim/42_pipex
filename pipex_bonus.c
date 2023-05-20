@@ -22,8 +22,5 @@ int	main(int ac, char **av, char **env)
 	if (ac < 5)
 		exit(1);
 	if (ft_strncmp(av[1], "here_doc", 9) == 0)
-	{
 		here_doc(av, env);
-		exit(0);
-	}
 }
