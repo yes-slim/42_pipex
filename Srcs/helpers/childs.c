@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:39:30 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/21 11:43:52 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:00:11 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	nd_pr(int *pp, char **av, char **env)
 	cmd2 = get_path(av[3], env);
 	fd2 = open(av[4], O_WRONLY | O_TRUNC , 0666);
 	close(pp[1]);
-	if (dup2(pp[0], 0)== -1)
+	// if (dup2(pp[0], 0)== -1)
 		// exit(1);
 	close(pp[0]);
 	if (dup2(fd2, 1) == -1)
