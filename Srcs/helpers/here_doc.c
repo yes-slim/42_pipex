@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:58:07 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 17:01:25 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 11:46:45 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	nd_pr_hd(int *pp, char **av, char **env)
 	int 		fd2;
 	
 	cmd2 = get_path(av[4], env);
-	fd2 = open(av[5], O_WRONLY | O_TRUNC , 0666);
+	fd2 = open(av[5], O_WRONLY | O_APPEND , 0666);
 	close(pp[1]);
 	if (dup2(pp[0], 0)== -1)
 		//error managment
@@ -75,7 +75,7 @@ void	here_doc(char **av, char **env)
 	pid_c2 = fork();
 	if (pid_c2 == 0)
 	{
-		check_outfile(av[5]);
+		check_outfile_HD(av[5]);
 		nd_pr_hd(pp, av, env);
 	}
 	close(pp[0]);

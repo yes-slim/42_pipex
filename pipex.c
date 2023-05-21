@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 14:45:37 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 11:38:10 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ int	main(int ac, char **av, char **env)
 	if (pid_c2 == 0)
 	{
 		check_outfile(av[4]);
-		nd_pr(pp, av, env);
+		nd_pr(pp, av, env, 'p');
 	}
 	close(pp[0]);
 	close(pp[1]);
 	waitpid(pid_c1, NULL, 0);
 	waitpid(pid_c2, NULL, 0);
-	// system("leaks pipex");
 }

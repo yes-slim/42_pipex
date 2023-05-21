@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 15:26:45 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 11:44:11 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*ft_strchr(const char *str, int c);
 char	*get_path(char *av, char **env);
 int		check_infile(char *path);
 int		check_outfile(char *path);
+int		check_outfile_HD(char *path);
 void	ft_error(int err);
 void	ft_error_exit(int err);
 void	ft_free(char **arr);
