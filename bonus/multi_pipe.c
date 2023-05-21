@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:03:40 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/21 22:44:38 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 23:02:13 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,13 @@ void	multi_pipe(int ac, char **av, char **env)
 		{
 			if (n == 0)
 			{
-				st_cmd(av, env, pp[n], &fd);
-				dup2(fd, pp[n][0]);
-				close(fd);
-				close(pp[n][1]);
+				st_child(av, env, pp[n], &fd);
+				pp[n][0] = fd;
 			}
 			else if (n == ac - 3)
-				nd_cmd(ac, av, env, pp[n]);
+				last_child(ac, av, env, pp[n]);
 			else
-				mid_cmds(av[i], env, pp[n], pp[n + 1]);
+				mid_childs(av[i], env, pp[n], pp[n + 1]);
 		}
 		i++;
 		n++;
