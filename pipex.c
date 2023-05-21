@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:22:43 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/21 14:50:23 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:32:34 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av, char **env)
 	if (pid_c2 == 0)
 	{
 		check_outfile(av[4]);
-		nd_pr(pp, av, env);
+		nd_pr(pp, av[3], av[4], env);
 	}
 	close(pp[0]);
 	close(pp[1]);

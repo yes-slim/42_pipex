@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/05/20 15:24:07 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/05/21 22:46:18 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,15 @@ NAME_B = pipex_bonus
 DEL = rm -f
 
 FT_PRINTF = ft_printf_helpers ft_printf
-HELPERS = ft_get_path check_files ft_error ft_helpers childs here_doc
+HELPERS = ft_get_path check_files ft_error ft_helpers childs 
 LIBFT = ft_split functions ft_strdup ft_strncmp
 GNL = get_next_line get_next_line_utils
+BONUS = here_doc #multi_childs #multi_pipe
 SRCS =	$(addsuffix .c, $(addprefix Srcs/ft_printf/, $(FT_PRINTF))) \
 		$(addsuffix .c, $(addprefix SRCS/helpers/, $(HELPERS))) \
 		$(addsuffix .c, $(addprefix SRCS/libft/, $(LIBFT))) \
 		$(addsuffix .c, $(addprefix SRCS/GNL/, $(GNL))) \
-		$(addsuffix .c, $(addprefix /, $())) \
+		$(addsuffix .c, $(addprefix bonus/, $(BONUS))) \
 
 OBJ = $(SRCS:.c=.o)
 
