@@ -1,5 +1,12 @@
-      15$
-      15$
-      15$
-      15$
-      15$
+Makefile
+README.md
+Srcs
+includes
+infile
+outfile
+pipex.a
+pipex.c
+pipex.eval.pdf
+pipex.sub.pdf
+pipex_bonus
+pipex_bonus.c
