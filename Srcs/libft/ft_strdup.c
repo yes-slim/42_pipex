@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:07:24 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/21 18:04:21 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:58:52 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
 char	*ft_strdup(const char *src)
 {
 	size_t	i;

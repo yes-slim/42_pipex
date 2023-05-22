@@ -6,11 +6,21 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:23:34 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/20 14:43:51 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:58:05 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	ft_free(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+}
 
 char	*get_cmd(char **cmd, char **env)
 {
@@ -57,11 +67,11 @@ char	*get_path(char *av, char **env)
 		if (access(path, X_OK) == -1)
 			ft_error(4);
 		ft_free(cmd);
-		return(path);
+		return (path);
 	}
 	path = get_cmd(cmd, env);
 	if (!path)
 		ft_error(1);
 	ft_free(cmd);
-	return(path);
+	return (path);
 }

@@ -6,57 +6,42 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:58:07 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/21 11:46:45 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:52:24 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	read_heredoc(char **av)	
-{
-	int		tmp_fd;
-	char	*line;
-	
-	tmp_fd = open("/tmp/.tmp_file", O_CREAT | O_RDWR, 0666);
-	line = get_next_line(0);
-	while (ft_strncmp(line, av[2], ft_strlen(av[2])) != 0)
-	{
-		write(tmp_fd, line, ft_strlen(line + 1));
-		write(tmp_fd, "\n", 1);
-		line = get_next_line(0);
-	}
-}
-
 void	st_pr_hd(int *pp, char **av, char **env, char *path)
 {
 	static char	*cmd1;
 	int			fd1;
-	
+
 	cmd1 = get_path(av[3], env);
 	fd1 = open(path, O_RDONLY);
 	if (dup2(fd1, 0) == -1)
-		//error managment
+		ft_error_exit(0);
 	close(fd1);
 	close(pp[0]);
 	if (dup2(pp[1], 1) == -1)
-		//error managment
+		ft_error_exit(0);
 	close(pp[1]);
 	execve(cmd1, ft_split(av[3], ' '), env);
 }
 
 void	nd_pr_hd(int *pp, char **av, char **env)
 {
-	static char	*cmd2;
-	int 		fd2;
-	
+	char	*cmd2;
+	int		fd2;
+
 	cmd2 = get_path(av[4], env);
-	fd2 = open(av[5], O_WRONLY | O_APPEND , 0666);
+	fd2 = open(av[5], O_WRONLY | O_APPEND, 0666);
 	close(pp[1]);
-	if (dup2(pp[0], 0)== -1)
-		//error managment
+	if (dup2(pp[0], 0) == -1)
+		ft_error_exit(0);
 	close(pp[0]);
 	if (dup2(fd2, 1) == -1)
-		//error managment
+		ft_error_exit(0);
 	close(fd2);
 	execve(cmd2, ft_split(av[4], ' '), env);
 }

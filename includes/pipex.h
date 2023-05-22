@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:10:02 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/21 22:45:20 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:58:11 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
+
 char	*get_next_line(int fd);
 char	*ft_fill(char *str);
 char	*ft_remainder(char *str);
@@ -52,19 +53,18 @@ char	*ft_strchr(const char *str, int c);
 char	*get_path(char *av, char **env);
 int		check_infile(char *path);
 int		check_outfile(char *path);
-int		check_outfile_HD(char *path);
 void	ft_error(int err);
 void	ft_error_exit(int err);
-void	ft_free(char **arr);
 void	st_pr(int *pp, char **av, char **env, char *path);
-void	nd_pr(int *pp, char *cmd,char *file, char **env);
+void	nd_pr(int *pp, char *cmd, char *file, char **env);
 void	here_doc(char **av, char **env);
 /*--------------------------------*/
 //BONUS
-void	st_child(char **av, char **env, int *pp, int *fd);
-void	last_child(int ac, char **av, char **env, int *pp);
+void	st_child(char **env, int *pp, char *path, char *cmd);
+void	last_child(int ac, char **av, char **env);
+void	mid_childs(char *av, char **env);
 void	multi_pipe(int ac, char **av, char **env);
-void	mid_childs(char *av, char **env, int *pp_1, int *pp_2);
+void	read_heredoc(char **av);
 /*--------------------------------*/
 
 #endif
