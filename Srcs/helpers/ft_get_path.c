@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:23:34 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/22 17:59:22 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:10:14 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ char	*get_path(char *av, char **env)
 	char	*path;
 	char	**cmd;
 
+	if (!av[0])
+		ft_error_exit(1);
 	cmd = ft_split(av, ' ');
 	if (!cmd)
 		ft_error(0);
@@ -65,7 +67,7 @@ char	*get_path(char *av, char **env)
 			ft_error(1);
 		path = ft_strdup(cmd[0]);
 		if (access(path, X_OK) == -1)
-			ft_error(4);
+			ft_error_exit(4);
 		ft_free(cmd);
 		return (path);
 	}

@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:09:45 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/22 18:03:18 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:54:47 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	st_child(char **env, int *pp, char *path, char *cmd)
 	int		fd1;
 	pid_t	pid;
 
+	cmd1 = get_path(cmd, env);
 	pid = fork();
 	if (pid == 0)
 	{	
 		check_infile(path);
-		cmd1 = get_path(cmd, env);
 		fd1 = open(path, O_RDONLY);
 		if (dup2(fd1, 0) == -1)
 			ft_error_exit(0);
@@ -33,9 +33,10 @@ void	st_child(char **env, int *pp, char *path, char *cmd)
 		close(pp[1]);
 		execve(cmd1, ft_split(cmd, ' '), env);
 	}
+	free(cmd1);
+	close(pp[1]);
 	dup2(pp[0], 0);
 	close(pp[0]);
-	close(pp[1]);
 	waitpid(pid, NULL, 0);
 }
 
@@ -70,17 +71,19 @@ void	mid_childs(char *av, char **env)
 	pid_t	pid;
 	int		fd[2];
 
+	cmd = get_path(av, env);
 	pipe(fd);
 	pid = fork();
 	if (pid == 0)
 	{
-		cmd = get_path(av, env);
-		dup2(fd[1], 1);
 		close(fd[0]);
+		dup2(fd[1], 1);
+		close(fd[1]);
 		execve(cmd, ft_split(av, ' '), env);
 	}
-	dup2(fd[0], 0);
+	free(cmd);
 	close(fd[1]);
+	dup2(fd[0], 0);
 	close(fd[0]);
 	waitpid(pid, NULL, 0);
 }

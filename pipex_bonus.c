@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:31:20 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/22 18:10:52 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:05:16 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	main(int ac, char **av, char **env)
 {
 	if (ac < 5)
+	{
+		ft_printf("Usage: ./pipex_bonus file1 cmd1 cmd2 ... cmdn file2\n");
 		exit(1);
+	}
 	multi_pipe(ac, av, env);
 }
 
