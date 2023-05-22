@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:22:04 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/03/23 11:09:56 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/22 21:22:07 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	ft_error(int err)
 		ft_printf("Error: permission denied\n");
 	if (err == 4)
 		ft_printf("Error: no such file or directory\n");
+	if (err == 8)
+		ft_printf("Usage: ./pipex file1 cmd1 cmd2 file2\n");
+	if (err == 9)
+		ft_printf("Error: invalid arguments\n");
 }
 
 void	ft_error_exit(int err)
