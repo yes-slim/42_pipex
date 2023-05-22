@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/05/22 01:59:16 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/05/22 02:07:08 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,4 +56,4 @@ fclean : clean
 re : fclean all
 rebonus : fclean bonus
 
-.PHONY : all clean fclean r-I includess
+.PHONY : all clean fclean re bonus
