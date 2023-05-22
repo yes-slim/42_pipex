@@ -48,7 +48,7 @@ void	last_child(int ac, char **av, char **env)
 	check_outfile(av[ac - 1]);
 	cmd2 = get_path(av[ac - 2], env);
 	if (!ft_strncmp(av[1], "here_doc", 9))
-	fd2 = open(av[ac - 1], O_WRONLY | O_APPEND, 0666);
+		fd2 = open(av[ac - 1], O_WRONLY | O_APPEND, 0666);
 	else
 		fd2 = open(av[ac - 1], O_WRONLY | O_TRUNC, 0666);
 	pid = fork();
