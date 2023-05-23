@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:31:20 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/24 00:10:22 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/24 00:42:35 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ void	read_heredoc(char **av)
 	line = get_next_line(0);
 	if (!line)
 		exit(1);
-	while (ft_strcmp(line, av[2]) != 0)
+	while (1)
 	{
+		if (!ft_strcmp(line, av[2]))
+			break ;
 		write(tmp_fd, line, ft_strlen(line));
 		write(tmp_fd, "\n", 1);
 		free(line);
 		line = get_next_line(0);
 		if (!line)
-			exit(1);
+			break;
 	}
 	free(line);
 }
