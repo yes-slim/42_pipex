@@ -6,7 +6,7 @@
 /*   By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:31:20 by yes-slim          #+#    #+#             */
-/*   Updated: 2023/05/24 00:42:35 by yes-slim         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:21:05 by yes-slim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	read_heredoc(char **av)
 		free(line);
 		line = get_next_line(0);
 		if (!line)
-			break;
+			break ;
 	}
 	free(line);
 }
