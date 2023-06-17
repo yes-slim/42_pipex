@@ -6,7 +6,7 @@
 #    By: yes-slim <yes-slim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 18:06:40 by yes-slim          #+#    #+#              #
-#    Updated: 2023/06/17 20:38:13 by yes-slim         ###   ########.fr        #
+#    Updated: 2023/06/17 20:39:06 by yes-slim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ clean :
 	@echo $(green)$(italic)$(bold)"	~Deleting files..."$(reset)
 
 fclean : clean
-	@$(DEL) $(NAME)
+	@$(DEL) $(NAME) $(NAME_B) pipex.a
 	@echo $(green)$(italic)$(bold)"	~Deleting pipex..."$(reset)
 
 re : fclean all
