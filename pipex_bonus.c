@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av, char **env)
 {
-	if (ac < 5)
+	if (ac < 	5)
 		ft_error_exit(9);
 	multi_pipe(ac, av, env);
 }

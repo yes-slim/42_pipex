@@ -40,6 +40,32 @@ void	st_child(char **env, int *pp, char *path, char *cmd)
 	waitpid(pid, NULL, 0);
 }
 
+void	mid_childs(char *av, char **env)
+{
+	char	*cmd;
+	pid_t	pid;
+	int		fd[2];
+
+	cmd = get_path(av, env);
+	pipe(fd);
+	pid = fork();
+	if (pid == 0)
+	{
+		close(fd[0]);
+		dup2(fd[1], 1);
+		close(fd[1]);
+		execve(cmd, ft_split(av, ' '), env);
+	}
+	f
+	
+	
+	ree(cmd);
+	close(fd[1]);
+	dup2(fd[0], 0);
+	close(fd[0]);
+	waitpid(pid, NULL, 0);
+}
+
 void	last_child(int ac, char **av, char **env)
 {
 	char	*cmd2;
@@ -62,28 +88,5 @@ void	last_child(int ac, char **av, char **env)
 	}
 	free(cmd2);
 	close(fd2);
-	waitpid(pid, NULL, 0);
-}
-
-void	mid_childs(char *av, char **env)
-{
-	char	*cmd;
-	pid_t	pid;
-	int		fd[2];
-
-	cmd = get_path(av, env);
-	pipe(fd);
-	pid = fork();
-	if (pid == 0)
-	{
-		close(fd[0]);
-		dup2(fd[1], 1);
-		close(fd[1]);
-		execve(cmd, ft_split(av, ' '), env);
-	}
-	free(cmd);
-	close(fd[1]);
-	dup2(fd[0], 0);
-	close(fd[0]);
 	waitpid(pid, NULL, 0);
 }
